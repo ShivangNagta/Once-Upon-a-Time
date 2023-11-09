@@ -10,6 +10,11 @@ public class TPPController : MonoBehaviour
     float turnSmoothVelocity;
     public Transform cam;
 
+    void Start()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
