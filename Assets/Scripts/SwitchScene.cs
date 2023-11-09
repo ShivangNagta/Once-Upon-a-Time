@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class SwitchScene : MonoBehaviour
 {
-    [SerializeField] GameObject present, past, future;
+    [SerializeField] GameObject present, past, future, canvas;
 
     void Start()
     {
         present.SetActive(true);
         past.SetActive(false);
         future.SetActive(false);
+        canvas.SetActive(false);
     }
     void OnTriggerStay(Collider other)
     {
+        canvas.SetActive(true);
         if (Input.GetKeyDown(KeyCode.C))
         {
             present.SetActive(true);
@@ -34,5 +36,9 @@ public class SwitchScene : MonoBehaviour
             future.SetActive(false);
         }
 
+    }
+    void OnTriggerExit(Collider other)
+    {
+        canvas.SetActive(false );
     }
 }
