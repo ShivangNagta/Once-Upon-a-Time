@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
+    public AudioSource switchScene;
     [SerializeField] GameObject present, past, future, canvas, spotlight;
     public Material pastScene, presentScene, futureScene;
 
@@ -31,6 +32,7 @@ public class SwitchScene : MonoBehaviour
         spotlight.SetActive(true);
         if (Input.GetKeyDown(KeyCode.C))
         {
+            switchScene.Play();
             RenderSettings.skybox = presentScene;
             DynamicGI.UpdateEnvironment();
 
@@ -41,6 +43,7 @@ public class SwitchScene : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            switchScene.Play();
             RenderSettings.skybox = futureScene;
             DynamicGI.UpdateEnvironment();
 
@@ -50,6 +53,7 @@ public class SwitchScene : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+            switchScene.Play();
             RenderSettings.skybox = pastScene;
             DynamicGI.UpdateEnvironment();
 
