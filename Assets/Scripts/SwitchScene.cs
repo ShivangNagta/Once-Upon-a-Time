@@ -5,9 +5,14 @@ using UnityEngine;
 public class SwitchScene : MonoBehaviour
 {
     [SerializeField] GameObject present, past, future, canvas;
+    public Material pastScene, presentScene, futureScene;
 
     void Start()
     {
+        RenderSettings.skybox = presentScene;
+        DynamicGI.UpdateEnvironment();
+
+
         present.SetActive(true);
         past.SetActive(false);
         future.SetActive(false);
@@ -18,6 +23,9 @@ public class SwitchScene : MonoBehaviour
         canvas.SetActive(true);
         if (Input.GetKeyDown(KeyCode.C))
         {
+            RenderSettings.skybox = presentScene;
+            DynamicGI.UpdateEnvironment();
+
             present.SetActive(true);
             past.SetActive(false);
             future.SetActive(false);
@@ -25,12 +33,18 @@ public class SwitchScene : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            RenderSettings.skybox = futureScene;
+            DynamicGI.UpdateEnvironment();
+
             present.SetActive(false);
             past.SetActive(false);
             future.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
+            RenderSettings.skybox = pastScene;
+            DynamicGI.UpdateEnvironment();
+
             present.SetActive(false);
             past.SetActive(true);
             future.SetActive(false);
