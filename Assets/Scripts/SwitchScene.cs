@@ -1,6 +1,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class SwitchScene : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
+        if (other.tag == "TheEnd")
+        {
+            SceneManager.LoadSceneAsync(2);
+
+        }
+
         canvas.SetActive(true);
         spotlight.SetActive(true);
         if (Input.GetKeyDown(KeyCode.C))
