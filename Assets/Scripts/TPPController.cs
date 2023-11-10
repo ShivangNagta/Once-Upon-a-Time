@@ -12,7 +12,7 @@ public class TPPController : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(transform.gameObject);
+       
     }
 
     // Update is called once per frame
